@@ -12,6 +12,28 @@ class App extends Component {
         gridFull: Array(30).fill().map(() => Array(50).fill(false))
     }
 
+    arrayClone = (arr) => {
+        return JSON.parse(JSON.stringify(arr));
+    }
+
+    seed = () => {
+        let gridCopy = this.arrayClone(this.state.gridFull);
+        for (let i = 0; i < this.state.rows; i++) {
+            for (let j = 0; j < this.state.cols; j++) {
+                if (Math.floor(Math.random() * 4) === 1) {
+                    gridCopy[i][j] = true;
+                }
+            }
+        }
+        this.setState({
+            gridFull: gridCopy
+        });
+    }
+
+    componentDidMount() {
+        this.seed();
+    }
+
   render() {
     return (
       <div className={classes.App}>

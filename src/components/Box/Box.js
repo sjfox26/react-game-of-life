@@ -7,13 +7,26 @@ const box = (props) => {
         props.selectBox(props.row, props.col);
     }*/
 
-    return (
-        <div
-            className={classes.Box}
-            //id={props.id}
-            //onClick={selectBox}
-        />
-    );
+    if (props.alive === "alive") {
+        return (
+            <div
+                className={classes.BoxOn}
+                //id={props.id}
+                //onClick={selectBox}
+            />
+            );
+
+    } else {
+        return (
+            <div
+                className={classes.BoxOff}
+                //id={props.id}
+                //onClick={selectBox}
+            />
+        );
+    }
+
+
 }
 
 

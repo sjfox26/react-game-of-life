@@ -1,8 +1,19 @@
-.Box {
+.BoxOn {
     display: inline-block;
     border: 1px solid black;
     width: 13px;
     height: 13px;
     margin-left: -1px;
     margin-bottom: -1px;
+    background-color: black;
+}
+
+.BoxOff {
+    display: inline-block;
+    border: 1px solid black;
+    width: 13px;
+    height: 13px;
+    margin-left: -1px;
+    margin-bottom: -1px;
+    background-color: white;
 }

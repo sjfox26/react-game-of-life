@@ -35,6 +35,10 @@ class App extends Component {
         });
     }
 
+    // algorithm and game logic from https://github.com/beaucarnes/fcc-project-tutorials/blob/master/gameoflife/src/index.js
+    //I changed around some functions and made minor structural changes to ensure understanding.  These changes include setting up the project in the App File,
+    //utilizing CSS modules, converting the Box component into a functional component, using the new State setup, and other minor adjustments
+
     play = () => {
         let g = this.state.gridFull;
         let g2 = this.arrayClone(this.state.gridFull);

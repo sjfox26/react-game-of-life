@@ -1,11 +1,33 @@
 import React from 'react';
 import classes from './Grid.css';
+import Box from '../../components/Box/Box.js';
 
-const grid = (props) => (
-    <div className={classes.Grid}>
-        Grid
-    </div>
-);
+class Grid extends React.Component {
+    render() {
 
+        let rowsArr = [];
 
-export default grid;
+        for (let i = 0; i < this.props.rows; i++) {
+            for (let j = 0; j < this.props.cols; j++) {
+                let boxId = i + "_" + j;
+
+                rowsArr.push(
+                    <Box
+                        key={boxId}
+                        boxId={boxId}
+                        row={i}
+                        col={j}
+                    />
+                );
+            }
+        }
+
+        return (
+            <div className={classes.Grid}>
+                {rowsArr}
+            </div>
+        );
+    }
+}
+
+export default Grid;

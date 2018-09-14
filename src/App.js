@@ -5,8 +5,20 @@ import Grid from './components/Grid/Grid';
 
 class App extends Component {
 
-    rows = 30;
+    /*rows = 30;
     cols = 50;
+    speed = 100;
+
+    state = {
+        speed: this.speed,
+        generations: 0,
+        rows: this.rows,
+        cols: this.cols,
+        gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+    }*/
+
+    rows = 20;
+    cols = 20;
     speed = 100;
 
     state = {
@@ -21,7 +33,7 @@ class App extends Component {
         return JSON.parse(JSON.stringify(arr));
     }
 
-    seed = () => {
+    /*seed = () => {
         let gridCopy = this.arrayClone(this.state.gridFull);
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.cols; j++) {
@@ -30,6 +42,35 @@ class App extends Component {
                 }
             }
         }
+        this.setState({
+            gridFull: gridCopy
+        });
+    }*/
+
+    seed = () => {
+        //let gridCopy = this.arrayClone(this.state.gridFull);
+        let gridCopy = [
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+            [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+            [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
+            [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+            [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    ];
         this.setState({
             gridFull: gridCopy
         });

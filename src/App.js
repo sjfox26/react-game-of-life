@@ -19,7 +19,7 @@ class App extends Component {
 
     rows = 20;
     cols = 20;
-    speed = 100;
+    speed = 200;
 
     state = {
         speed: this.speed,

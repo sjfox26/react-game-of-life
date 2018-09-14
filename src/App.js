@@ -120,6 +120,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <h1>Game of Life</h1>
+          <h3>Pentadecathlon</h3>
           <Grid
               gridFull={this.state.gridFull}
               rows={this.rows}

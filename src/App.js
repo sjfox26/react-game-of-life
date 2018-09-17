@@ -25,7 +25,7 @@ class App extends Component {
         speed: this.speed,
         generations: 0,
         pattern: 'pentadecathlon',
-        patterns: ['pentadecathlon', 'random'],
+        patterns: ['pentadecathlon', 'random', 'pulsar'],
         rows: this.rows,
         cols: this.cols,
         gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
@@ -71,6 +71,32 @@ class App extends Component {
                     }
                 }
             }
+            this.setState({
+                gridFull: gridCopy
+            });
+        } else if (pattern === 'pulsar') {
+            let gridCopy = [
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
+                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
+                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
+                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
+                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
+                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
+                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+            ];
             this.setState({
                 gridFull: gridCopy
             });

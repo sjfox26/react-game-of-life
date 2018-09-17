@@ -24,8 +24,8 @@ class App extends Component {
     state = {
         speed: this.speed,
         generations: 0,
-        pattern: 'pentadecathlon',
-        patterns: ['pentadecathlon', 'random', 'pulsar', 'spaceship_1'],
+        pattern: 'random',
+        patterns: ['random', 'pentadecathlon', 'pulsar'],
         rows: this.rows,
         cols: this.cols,
         gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
@@ -92,32 +92,6 @@ class App extends Component {
                 [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-            ];
-            this.setState({
-                gridFull: gridCopy
-            });
-        } else if (pattern === 'spaceship_1') {
-            let gridCopy = [
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, true, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -193,7 +167,7 @@ class App extends Component {
       <div className={classes.App}>
         <h1>Game of Life</h1>
           {this.state.patterns.map((p) => (
-              <h3 key={p} onClick={() => this.updatePattern(p)}>
+              <h3 key={p} onClick={() => this.updatePattern(p)} style={ this.state.pattern === p ? {color: 'white'} : {color : 'black'}}>
                   {p}
               </h3>
           ))}

@@ -11,3 +11,9 @@
 .App h3:hover {
     cursor: pointer;
 }
+
+.App h3:hover,
+.App h3:active,
+.App h3.active {
+    color: #ffffff;
+}

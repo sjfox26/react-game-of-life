@@ -24,6 +24,8 @@ class App extends Component {
     state = {
         speed: this.speed,
         generations: 0,
+        pattern: 'pentadecathlon',
+        patterns: ['pentadecathlon', 'random'],
         rows: this.rows,
         cols: this.cols,
         gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
@@ -33,47 +35,46 @@ class App extends Component {
         return JSON.parse(JSON.stringify(arr));
     }
 
-    /*seed = () => {
-        let gridCopy = this.arrayClone(this.state.gridFull);
-        for (let i = 0; i < this.rows; i++) {
-            for (let j = 0; j < this.cols; j++) {
-                if (Math.floor(Math.random() * 4) === 1) {
-                    gridCopy[i][j] = true;
+    seed = (pattern) => {
+        if (pattern === 'pentadecathlon') {
+            let gridCopy = [
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+            ];
+            this.setState({
+                gridFull: gridCopy
+            });
+        } else if (pattern === 'random') {
+            let gridCopy = this.arrayClone(this.state.gridFull);
+            for (let i = 0; i < this.rows; i++) {
+                for (let j = 0; j < this.cols; j++) {
+                    if (Math.floor(Math.random() * 4) === 1) {
+                        gridCopy[i][j] = true;
+                    }
                 }
             }
+            this.setState({
+                gridFull: gridCopy
+            });
         }
-        this.setState({
-            gridFull: gridCopy
-        });
-    }*/
-
-    seed = () => {
-        //let gridCopy = this.arrayClone(this.state.gridFull);
-        let gridCopy = [
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
-            [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
-            [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
-            [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
-            [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-    ];
-        this.setState({
-            gridFull: gridCopy
-        });
     }
 
     // algorithm and game logic from https://github.com/beaucarnes/fcc-project-tutorials/blob/master/gameoflife/src/index.js
@@ -112,15 +113,38 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.seed();
+        this.seed(this.state.pattern);
         this.initiate();
     }
+
+    updatePattern = (pattern) => {
+        if (pattern !== this.state.pattern) {
+            this.setState({
+                pattern: pattern
+            });
+        }
+    }
+
+    componentDidUpdate (prevProps, prevState) {
+        if (prevState.pattern !== this.state.pattern) {
+            this.seed(this.state.pattern);
+            this.initiate();
+        }
+    }
+
+
+
+
 
   render() {
     return (
       <div className={classes.App}>
         <h1>Game of Life</h1>
-          <h3>Pentadecathlon</h3>
+          {this.state.patterns.map((p) => (
+              <h3 key={p} onClick={() => this.updatePattern(p)}>
+                  {p}
+              </h3>
+          ))}
           <Grid
               gridFull={this.state.gridFull}
               rows={this.rows}

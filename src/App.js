@@ -25,7 +25,7 @@ class App extends Component {
         speed: this.speed,
         generations: 0,
         pattern: 'pentadecathlon',
-        patterns: ['pentadecathlon', 'random', 'pulsar'],
+        patterns: ['pentadecathlon', 'random', 'pulsar', 'spaceship_1'],
         rows: this.rows,
         cols: this.cols,
         gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
@@ -80,7 +80,7 @@ class App extends Component {
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ],
                 [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
                 [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
                 [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
@@ -90,8 +90,34 @@ class App extends Component {
                 [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
                 [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
                 [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false ],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+            ];
+            this.setState({
+                gridFull: gridCopy
+            });
+        } else if (pattern === 'spaceship_1') {
+            let gridCopy = [
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, true, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
                 [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -103,7 +129,7 @@ class App extends Component {
         }
     }
 
-    // algorithm and game logic from https://github.com/beaucarnes/fcc-project-tutorials/blob/master/gameoflife/src/index.js
+    // algorithm from https://github.com/beaucarnes/fcc-project-tutorials/blob/master/gameoflife/src/index.js
     //I changed around some functions and made minor structural changes to ensure understanding.  These changes include setting up the project in the App File,
     //utilizing CSS modules, converting the Box component into a functional component, using the new State setup, and other minor adjustments
 

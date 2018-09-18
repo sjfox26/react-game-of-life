@@ -28,7 +28,8 @@ class App extends Component {
         patterns: ['random', 'pentadecathlon', 'pulsar'],
         rows: this.rows,
         cols: this.cols,
-        gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+        gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+        test: 'testing!'
     }
 
     arrayClone = (arr) => {
@@ -171,6 +172,7 @@ class App extends Component {
                   {p}
               </h3>
           ))}
+          <h6>{this.state.test}</h6>
           <Grid
               gridFull={this.state.gridFull}
               rows={this.rows}

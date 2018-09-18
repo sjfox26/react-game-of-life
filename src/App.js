@@ -6,18 +6,6 @@ import * as actionTypes from './store/actions';
 
 class App extends Component {
 
-    /*rows = 30;
-    cols = 50;
-    speed = 100;
-
-    state = {
-        speed: this.speed,
-        generations: 0,
-        rows: this.rows,
-        cols: this.cols,
-        gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
-    }*/
-
     rows = 20;
     cols = 20;
     speed = 200;
@@ -38,7 +26,6 @@ class App extends Component {
 
     seed = (pattern) => {
         if (pattern === 'pentadecathlon') {
-            //let gridCopy = this.pentadecathlonPattern;
             let gridCopy = this.props.pent;
             this.setState({
                 gridFull: gridCopy

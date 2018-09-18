@@ -1,7 +1,7 @@
 import * as actionTypes from './actions';
 
 const initialState = {
-    test: 'testing',
+    test: 'click me',
     pentPattern: [
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -53,7 +53,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.PRINT_TEST:
             return {
                 ...state,
-                test: 'hello from the reducer'
+                test: 'hello from the reducer!'
             };
         default:
             return state;

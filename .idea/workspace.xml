@@ -4,7 +4,6 @@
     <list default="true" id="5acd98ba-defb-46ac-999f-bfae92889d66" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/reducer.js" afterPath="$PROJECT_DIR$/src/store/reducer.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            <state relative-caret-position="945">
+              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -31,8 +30,8 @@
       <file leaf-file-name="reducer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="930">
+              <caret line="62" column="23" lean-forward="true" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -160,8 +159,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="246" />
-    <option name="y" value="33" />
+    <option name="x" value="258" />
+    <option name="y" value="112" />
     <option name="width" value="1678" />
     <option name="height" value="918" />
   </component>
@@ -240,15 +239,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536792811861</updated>
-      <workItem from="1536792813724" duration="34939000" />
+      <workItem from="1536792813724" duration="35714000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34939000" />
+    <option name="totallyTimeSpent" value="35714000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="246" y="33" width="1678" height="918" extended-state="0" />
+    <frame x="258" y="112" width="1678" height="918" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27261615" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -387,6 +386,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -399,24 +406,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+        <state relative-caret-position="930">
+          <caret line="62" column="23" lean-forward="true" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state relative-caret-position="945">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

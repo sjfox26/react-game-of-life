@@ -38,7 +38,8 @@ class App extends Component {
 
     seed = (pattern) => {
         if (pattern === 'pentadecathlon') {
-            let gridCopy = this.pentadecathlonPattern;
+            //let gridCopy = this.pentadecathlonPattern;
+            let gridCopy = this.props.pent;
             this.setState({
                 gridFull: gridCopy
             });
@@ -55,58 +56,12 @@ class App extends Component {
                 gridFull: gridCopy
             });
         } else if (pattern === 'pulsar') {
-            let gridCopy = this.pulsarPattern;
+            let gridCopy = this.props.puls;
             this.setState({
                 gridFull: gridCopy
             });
         }
     }
-
-    pulsarPattern = [
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ],
-        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
-        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
-        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
-        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
-        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
-        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
-        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false ],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-    ];
-
-    pentadecathlonPattern = [
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
-        [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
-        [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
-        [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
-        [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-    ];
 
     // algorithm from https://github.com/beaucarnes/fcc-project-tutorials/blob/master/gameoflife/src/index.js
     //I changed around some functions and made some structural changes to ensure understanding.  These changes include setting up the project in the App File,
@@ -189,7 +144,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
-        tst: state.test
+        tst: state.test,
+        pent: state.pentPattern,
+        puls: state.pulsPattern
     }
 }
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from "./App.css";
-
 import Grid from './components/Grid/Grid';
+import { connect } from 'react-redux';
+import * as actionTypes from './store/actions';
 
 class App extends Component {
 
@@ -28,8 +29,7 @@ class App extends Component {
         patterns: ['random', 'pentadecathlon', 'pulsar'],
         rows: this.rows,
         cols: this.cols,
-        gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
-        test: 'testing!'
+        gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
 
     arrayClone = (arr) => {
@@ -38,28 +38,7 @@ class App extends Component {
 
     seed = (pattern) => {
         if (pattern === 'pentadecathlon') {
-            let gridCopy = [
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-            ];
+            let gridCopy = this.pentadecathlonPattern;
             this.setState({
                 gridFull: gridCopy
             });
@@ -76,36 +55,61 @@ class App extends Component {
                 gridFull: gridCopy
             });
         } else if (pattern === 'pulsar') {
-            let gridCopy = [
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ],
-                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
-                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
-                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
-                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
-                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
-                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
-                [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false ],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-            ];
+            let gridCopy = this.pulsarPattern;
             this.setState({
                 gridFull: gridCopy
             });
         }
     }
 
+    pulsarPattern = [
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ],
+        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
+        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
+        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
+        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false],
+        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
+        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false],
+        [false, false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false, false, false ],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false, false, false ],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    ];
+
+    pentadecathlonPattern = [
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+        [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+        [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, false, false, false ],
+        [false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false ],
+        [false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false ],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+        [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    ];
+
     // algorithm from https://github.com/beaucarnes/fcc-project-tutorials/blob/master/gameoflife/src/index.js
-    //I changed around some functions and made minor structural changes to ensure understanding.  These changes include setting up the project in the App File,
+    //I changed around some functions and made some structural changes to ensure understanding.  These changes include setting up the project in the App File,
     //utilizing CSS modules, converting the Box component into a functional component, using the new State setup, and other minor adjustments
 
     play = () => {
@@ -172,7 +176,7 @@ class App extends Component {
                   {p}
               </h3>
           ))}
-          <h6>{this.state.test}</h6>
+          <h6 onClick={() => {this.props.onPrintTest()}}>{this.props.tst}</h6>
           <Grid
               gridFull={this.state.gridFull}
               rows={this.rows}
@@ -183,4 +187,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        tst: state.test
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onPrintTest: () => dispatch({type: actionTypes.PRINT_TEST})
+    }
+}
+
+export default connect (mapStateToProps, mapDispatchToProps) (App);

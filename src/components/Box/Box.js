@@ -7,8 +7,6 @@ const box = (props) => {
         return (
             <div
                 className={classes.BoxOn}
-                //id={props.id}
-                //onClick={selectBox}
             />
             );
 
@@ -16,8 +14,6 @@ const box = (props) => {
         return (
             <div
                 className={classes.BoxOff}
-                //id={props.id}
-                //onClick={selectBox}
             />
         );
     }
